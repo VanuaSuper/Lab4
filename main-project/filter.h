@@ -4,6 +4,9 @@
 
 #include "lecture_plan.h"
 
+#include <iostream>
+#include <cstring>
+
 lecture_plan** filter(lecture_plan* array[], int size, bool (*check)(lecture_plan* element), int& result_size);
 
 /*
@@ -53,5 +56,6 @@ bool check_lecture_plan_by_duration(lecture_plan* element);
 ¬ќ«¬–јўј≈ћќ≈ «Ќј„≈Ќ»≈
     true, если доклад длитс€ больше 15 минут, и false в ином случае
 */
+
 
 #endif

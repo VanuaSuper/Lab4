@@ -7,6 +7,7 @@ using namespace std;
 #include "file_reader.h"
 #include "constants.h"
 #include "filter.h"
+#include "processing.h"
 
 void output(lecture_plan* lecture) {
     /********** вывод времени **********/
@@ -45,6 +46,49 @@ int main()
     try
     {
         read("data.txt", lectures, size);
+
+        bool (*compare_function)(lecture_plan*, lecture_plan*) = NULL;
+        
+        cout << "Выберите критерий сортировки данных:\n";
+        cout << "1) По убыванию длительности доклада\n";
+        cout << "2) По возрастанию фамилии автора доклада, а в рамках одного автора по возрастанию темы доклада\n";
+        cout << "\nВведите номер выбранного пункта: ";
+        int item;
+        cin >> item;
+        cout << '\n';
+
+        switch (item)
+        {
+        case 1:
+            compare_function = compare_by_duration;
+            break;
+        case 2:
+            compare_function = compare_by_author_last_name;
+            break;
+        default:
+            throw "Некорректный номер пункта";
+        }
+
+        cout << "Выберите способ сортировки данных:\n";
+        cout << "1) Сортировка слиянием\n";
+        cout << "2) Пирамидальная сортировка\n";
+        cout << "\nВведите номер выбранного пункта: ";
+        cin >> item;
+        cout << '\n';
+
+        switch (item)
+        {
+        case 1:
+            merge_sort(lectures, 0, size - 1, compare_function);
+            break;
+        case 2:
+            heap_sort(lectures, size, compare_function);
+            break;
+        default:
+            throw "Некорректный номер пункта";
+        }
+        
+
         cout << "***** Программа конференции *****\n\n";
         for (int i = 0; i < size; i++)
         {
@@ -57,7 +101,6 @@ int main()
         cout << "1) Доклады Иванова Ивана Ивановича\n";
         cout << "2) Доклады длительностью более 15 минут\n";
         cout << "\nВведите номер выбранного пункта: ";
-        int item;
         cin >> item;
         cout << '\n';
 
