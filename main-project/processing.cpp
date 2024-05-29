@@ -126,5 +126,13 @@ void heap_sort(lecture_plan* array[], int size, bool (*compare)(lecture_plan*, l
 }
 
 int process(lecture_plan* array[], int size) {
-    return 0;
+
+    int max = 0;
+    for (int i = 0; i < size; i++) {
+        if (duration(array[i]) > max) {
+            max = duration(array[i]);
+        }
+    }
+
+    return max;
 }
