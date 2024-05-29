@@ -124,3 +124,7 @@ void heap_sort(lecture_plan* array[], int size, bool (*compare)(lecture_plan*, l
         heapify(array, i, 0, compare);
     }
 }
+
+int process(lecture_plan* array[], int size) {
+    return 0;
+}
