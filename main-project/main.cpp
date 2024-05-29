@@ -105,6 +105,7 @@ int main()
         cin >> item;
         cout << '\n';
 
+        int hours;
         int minutes;
         switch (item)
         {
@@ -119,7 +120,9 @@ int main()
         case 3:
             minutes = process(lectures, size);
             cout << "***** Длительность самого длинного доклада *****\n\n";
-            cout << minutes << "\n\n";
+            hours = floor(minutes / 60);
+            minutes = minutes - hours * 60;
+            cout << setw(2) << hours << ":" << setw(2) << minutes << "\n\n";
             break;
         default:
             throw "Некорректный номер пункта";
