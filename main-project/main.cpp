@@ -100,10 +100,12 @@ int main()
         cout << "\nВыберите способ фильтрации или обработки данных:\n";
         cout << "1) Доклады Иванова Ивана Ивановича\n";
         cout << "2) Доклады длительностью более 15 минут\n";
+        cout << "3) Длительность самого длинного доклада\n";
         cout << "\nВведите номер выбранного пункта: ";
         cin >> item;
         cout << '\n';
 
+        int minutes;
         switch (item)
         {
         case 1:
@@ -114,9 +116,15 @@ int main()
             check_function = check_lecture_plan_by_duration; // присваиваем в указатель на функцию соответствующую функцию
             cout << "***** Доклады длительностью более 15 минут *****\n\n";
             break;
+        case 3:
+            minutes = process(lectures, size);
+            cout << "***** Длительность самого длинного доклада *****\n\n";
+            cout << minutes << "\n\n";
+            break;
         default:
             throw "Некорректный номер пункта";
         }
+
 
         if (check_function)
         {
