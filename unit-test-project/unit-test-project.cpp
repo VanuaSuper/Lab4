@@ -36,8 +36,8 @@ namespace unittestproject
 			lecture_plan* lectures[3];
 			lectures[0] = build_lecture_plan(8,30,10,0); // 90
 			lectures[1] = build_lecture_plan(10,30,12,0); // 90 
-			lectures[2] = build_lecture_plan(9,0,12,0); // 120 
-			Assert::AreEqual(120, process(lectures, 3));
+			lectures[2] = build_lecture_plan(9,0,12,0); // 180 
+			Assert::AreEqual(180, process(lectures, 3));
 			delete_lecture_plan(lectures, 3);
 		}
 
