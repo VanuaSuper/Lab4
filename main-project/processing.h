@@ -19,5 +19,7 @@ void heapify(lecture_plan* array[], int size, int index, bool (*compare)(lecture
 
 void heap_sort(lecture_plan* array[], int size, bool (*compare)(lecture_plan*, lecture_plan*));
 
+int process(lecture_plan* array[], int size);
+
 #endif
 
